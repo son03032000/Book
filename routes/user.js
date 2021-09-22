@@ -21,7 +21,7 @@ router.post("/", user_controller.postCheckUser)
 
 router.put("/:id", user_controller.UpdateId);
 
-router.delete("/:id", user_controller.DeleteID);
+router.delete("/:id",checkLogin,checkAdmin, user_controller.DeleteID);
 
 
 

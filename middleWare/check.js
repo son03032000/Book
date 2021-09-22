@@ -10,7 +10,7 @@ async function checkLogin(req, res, next) {
       if (checkToken) {
         res.json({ mess: "cookie bị hạn chế", status: 400 });
       } else {
-        const id = jwt.verify(token, "thai").id;
+        const id = jwt.verify(token, "mk").id;
         const checkUser = await UserModel.findOne({ _id: id });
         if (checkUser) {
           req.role = checkUser.role;
@@ -27,9 +27,8 @@ async function checkLogin(req, res, next) {
   }
 }
 
-function checkAdmin (req, res, next) {
+async function checkAdmin(req, res, next) {
   try {
-
     if (req.role === "admin") {
       next();
     } else {
@@ -39,7 +38,5 @@ function checkAdmin (req, res, next) {
     console.log(err);
   }
 }
-
-
 
 module.exports = { checkLogin, checkAdmin };

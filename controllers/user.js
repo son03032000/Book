@@ -9,7 +9,6 @@ exports.user_list = async (req, res) => {
   try {
     const user_list = await UserModel.find();
     res.json(user_list);
-    //render('home' , {title: 'User list', user_list: user_list});
   } catch (err) {
     res.json(err);
   }
@@ -37,7 +36,6 @@ exports.postLogin = async (req, res) => {
       res.json({ status: 400, mess: "sai username và password" });
     }
   } catch (error) {
-    console.log(error);
     res.json({ error, mess: "server error", status: 500 });
   }
 };
@@ -62,7 +60,6 @@ exports.postCheckLogin = async (req, res) => {
       res.json({ mess: "chua dang nhap", status: 400 });
     }
   } catch (error) {
-    console.log(error);
     res.json({ error, mess: "server error", status: 500 });
   }
 };
