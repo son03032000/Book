@@ -11,15 +11,15 @@ router.get("/", user_controller.user_list);
 
 router.post("/login", user_controller.postLogin);
 
-router.post("/checkLogin", user_controller.postCheckLogin);
+//router.post("/checkLogin", user_controller.postCheckLogin);
 
 router.post("/logout",  user_controller.postLogout)
 
 router.get("/:id", user_controller.getId);
 
-router.post("/", user_controller.postCheckUser)
+router.post("/",checkLogin,checkAdmin, user_controller.postCheckUser)
 
-router.put("/:id", user_controller.UpdateId);
+router.put("/:id",checkLogin,checkAdmin, user_controller.UpdateId);
 
 router.delete("/:id",checkLogin,checkAdmin, user_controller.DeleteID);
 

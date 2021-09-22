@@ -40,29 +40,29 @@ exports.postLogin = async (req, res) => {
   }
 };
 
-exports.postCheckLogin = async (req, res) => {
-  try {
-    if (req.cookies.user) {
-      const token = req.cookies.user;
-      const checkToken = await BlackListModel.findOne({ token });
-      if (checkToken) {
-        res.json({ mess: "cookie bị hạn chế", status: 400 });
-      } else {
-        const id = jwt.verify(token, "mk").id;
-        const checkUser = await UserModel.findOne({ _id: id });
-        if (checkUser) {
-          res.json({ mess: "user da dang nhap", status: 200 });
-        } else {
-          res.json({ mess: "cookie khong hop le", status: 400 });
-        }
-      }
-    } else {
-      res.json({ mess: "chua dang nhap", status: 400 });
-    }
-  } catch (error) {
-    res.json({ error, mess: "server error", status: 500 });
-  }
-};
+// exports.postCheckLogin = async (req, res) => {
+//   try {
+//     if (req.cookies.user) {
+//       const token = req.cookies.user;
+//       const checkToken = await BlackListModel.findOne({ token });
+//       if (checkToken) {
+//         res.json({ mess: "cookie bị hạn chế", status: 400 });
+//       } else {
+//         const id = jwt.verify(token, "mk").id;
+//         const checkUser = await UserModel.findOne({ _id: id });
+//         if (checkUser) {
+//           res.json({ mess: "user da dang nhap", status: 200 });
+//         } else {
+//           res.json({ mess: "cookie khong hop le", status: 400 });
+//         }
+//       }
+//     } else {
+//       res.json({ mess: "chua dang nhap", status: 400 });
+//     }
+//   } catch (error) {
+//     res.json({ error, mess: "server error", status: 500 });
+//   }
+// };
 
 exports.postLogout = async (req, res) => {
   try {
@@ -102,7 +102,10 @@ exports.postCheckUser = async (req, res) => {
 exports.UpdateId = async (req, res) => {
   try {
     var password = await bcrypt.hash(req.body.newPass, 10);
-    const data = await UserModel.updateOne({_id: req.params.id,},{ password: password });
+    const data = await UserModel.updateOne(
+      { _id: req.params.id },
+      { password: password }
+    );
     if (data.n == 0) {
       res.json("nhap sai password cu");
     } else if (data.nModified == 0) {

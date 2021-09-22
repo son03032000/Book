@@ -1,9 +1,9 @@
-var mongoose = require('mongoose');
+var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
 const UserSchema = mongoose.Schema(
   {
-    username: String ,
+    username: String,
     password: String,
     role: String,
   },
@@ -15,15 +15,7 @@ const UserSchema = mongoose.Schema(
 //   return '/user/member' + this._id;
 // });
 
-
 const UserModel = mongoose.model("user", UserSchema);
-
-
 
 module.exports = UserModel;
 //module.exports = mongoose.model('user', UserSchema);
-
-
-
-
-
