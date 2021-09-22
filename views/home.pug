@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+  .body
+  h1 Home Page
+  div
+    h2 create new
+    input#username(type='text' name='' placeholder='Username')
+    br
+    input#password(type='text' name='' placeholder='Password')
+    br
+  button(onclick='logon()') dang ky
+  .changePass
+    h2 change Pass
+    input.username(type='text' name='' placeholder='Username')
+    br
+    input.password(type='text' name='' placeholder='Password')
+    br
+    input.newPass(type='text' name='' placeholder='newPass')
+    br
+    input.confirm(type='text' name='' placeholder='confirm')
+    br
+    button.btnChange(onclick='changePassword()') Go
+    .noti 
+  .container
+    h2 ban be
+    .listFriend

@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+  h1 #{title}: #{book.title}
+  p= book.author
+  
+  if book_bookinstances.length
+  
+    p #[strong Xóa các mục sách sau trước khi cố gắng xóa cuốn sách này.]
+  
+    div(style='margin-left:20px;margin-top:20px')
+
+      h4 Bookinstances được liên kết
+    
+      dl
+      each bookinstance in book_bookinstances
+        dt 
+          a(href=bookinstance.url) #{bookinstance.imprint}
+        dd #{bookinstance.status}
+
+  else
+    p Bạn có thực sự muốn xóa Sách này không?
+    
+    form(method='POST' action='')
+      div.form-group
+        input#id.form-control(type='hidden',name='id', required='true', value=book._id )
+
+      button.btn.btn-primary(type='submit') Xóa

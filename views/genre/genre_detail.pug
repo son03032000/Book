@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+
+  h1 Thể loại: #{genre.name}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Sách
+    
+    dl
+    each book in genre_books
+      dt 
+        a(href=book.url) #{book.title}
+      dd #{book.summary}
+
+    else
+      p Thể loại này không có sách
+      
+  hr
+  p
+    a(href=genre.url+'/delete')
+      button.btn.btn-danger Xóa Thể loại
+       

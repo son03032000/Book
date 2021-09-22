@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+
+  h1 Tác giả: #{author.name}
+  p #{author.author_DOB_formatted} - #{author.author_DOD_formatted}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Sách
+    
+    dl
+    each book in author_books
+      dt 
+        a(href=book.url) #{book.title}
+      dd #{book.summary}
+
+    else
+      p Tác giả này không có sách.
+      
+  hr
+  p
+    a(href=author.url+'/delete') Xóa tác giả   
+

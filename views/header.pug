@@ -1,0 +1,36 @@
+header
+  .container
+    .row
+      nav.navbar.navbar-expand-lg.navbar-light
+        a.navbar-brand(href='/')
+          img.img-fluid(src='https://png.pngtree.com/templates_detail/20180917/book-library-education-logo-png_32062.jpg', width='50')
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
+           span.navbar-toggler-icon
+        #navbarNavDropdown.collapse.navbar-collapse.justify-content-end
+          ul.navbar-nav.justify-content-end
+            li
+              a.nav-link(href="/user") quản lý user 
+            li
+              a.nav-link(href="/catalog") Trang chủ
+            li
+              a.nav-link(href="/catalog/books") danh sách sách
+            li
+              a.nav-link(href="/catalog/authors") danh sách tác giả
+            li
+              a.nav-link(href="/catalog/genress") danh sách thể loại
+            li
+            li
+              a.nav-link(href="/catalog/bookinstances") Tất cả các phiên bản sách
+            li
+              hr
+            li
+              a.nav-link(href="/catalog/author/create") Tạo tác giả mới
+            li
+            li
+              a.nav-link(href="/catalog/genre/create") tạo thể loại mới
+            li
+            li
+              a.nav-link(href="/catalog/book/create") Tạo sách mới
+            li
+            li
+              a.nav-link(href="/authcatalog/bookinstance/createors") Tạo phiên bản sách mới
