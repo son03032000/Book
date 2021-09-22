@@ -13,13 +13,9 @@ block content
   button(onclick='logon()') dang ky
   .changePass
     h2 change Pass
-    input.username(type='text' name='' placeholder='Username')
+    input#newPass(type='text' name='' placeholder='newPass')
     br
-    input.password(type='text' name='' placeholder='Password')
-    br
-    input.newPass(type='text' name='' placeholder='newPass')
-    br
-    input.confirm(type='text' name='' placeholder='confirm')
+    input#confirm(type='text' name='' placeholder='confirm')
     br
     button.btnChange(onclick='changePassword()') Go
     .noti 

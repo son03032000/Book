@@ -29,6 +29,7 @@ async function checkLogin(req, res, next) {
 
 function checkAdmin (req, res, next) {
   try {
+
     if (req.role === "admin") {
       next();
     } else {
@@ -38,13 +39,7 @@ function checkAdmin (req, res, next) {
     console.log(err);
   }
 }
-// function checkAdmin(req, res, next) {
-//   var role = req.data.role
-//   if(role === "admin"){
-//     next();
-//   }else{
-//     res.json({ status: 400, mess: "khong co quyen admin" });
-//   }
-// }
+
+
 
 module.exports = { checkLogin, checkAdmin };

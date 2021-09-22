@@ -47,15 +47,15 @@ function changePass(id) {
   
 async function changePassword(id) {
   try {
-    const username = $(".username").val();
-    const password = $(".password").val();
-    const newPass = $(".newPass").val();
-    const confirm = $(".confirm").val();
+    const newPass = $("#newPass").val();
+    const confirm = $("#confirm").val();
+    console.log(newPass);
+    console.log(confirm);
     if(newPass == confirm){
       await $.ajax({
         url: "/user/" + id,
         type: "PUT",
-        data: { username, password, newPass, confirm },
+        data: { newPass, confirm },
       });
       $(".listFriend").html("");
       render();
