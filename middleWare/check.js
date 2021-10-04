@@ -1,7 +1,6 @@
-const UserModel = require("../models/userModel");
+const UserModel = require("../models/user");
 const BlackListModel = require("../models/blackListModel");
 const jwt = require("jsonwebtoken");
-
 async function checkLogin(req, res, next) {
   try {
     if (req.cookies.user) {
@@ -33,10 +32,12 @@ async function checkAdmin(req, res, next) {
       next();
     } else {
       res.json({ status: 400, mess: "khong co quyen admin" });
+      
     }
   } catch (err) {
     console.log(err);
   }
 }
+
 
 module.exports = { checkLogin, checkAdmin };
